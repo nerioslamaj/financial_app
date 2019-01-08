@@ -1,0 +1,51 @@
+{
+  "name": "upgraded-menu-monkey",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "test": "npm run eslint && npm run mocha",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "start": "node src/",
+    "mocha": "mocha test/ --recursive"
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^2.1.14",
+    "@feathersjs/authentication-jwt": "^2.0.8",
+    "@feathersjs/authentication-local": "^1.2.8",
+    "@feathersjs/errors": "^3.3.4",
+    "@feathersjs/express": "^1.2.7",
+    "@feathersjs/feathers": "^3.2.3",
+    "@feathersjs/socketio": "^3.2.6",
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "cors": "^2.8.3",
+    "eslint": "^5.11.1",
+    "feathers-authentication-hooks": "^0.3.1",
+    "feathers-configuration": "^0.4.1",
+    "feathers-hooks": "^2.0.1",
+    "feathers-hooks-common": "^4.19.6",
+    "feathers-mongodb": "^3.3.0",
+    "feathers-rest": "^1.7.2",
+    "helmet": "^3.6.0",
+    "mocha": "^5.2.0",
+    "mongodb": "^3.1.8",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "serve-favicon": "^2.4.2",
+    "winston": "^3.1.0"
+  }
+}
