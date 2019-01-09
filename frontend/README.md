@@ -1,4 +1,4 @@
-# react-menu-monkey-client
+# react-financial_app-client
 
 This is financial app created using Feathersjs for the backend and React for the frontend. 
 

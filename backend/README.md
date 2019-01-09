@@ -1,4 +1,4 @@
-# feathersjs-menu-monkey-backend
+# feathersjs-financial_app
 
 Backend for a fancial web app
 
