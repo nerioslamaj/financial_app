@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import { createTransaction, findTransactions, getTransaction } from './api';
+import { createTransaction, findTransactions, getTransaction, modifyTransaction } from './api';
 
 import {
   receiveRecentTransactions,
@@ -28,6 +28,15 @@ function* callCreateTransaction({ payload: { redirect, data } }) {
 
 export function* addTransactionSaga() {
   yield takeEvery(REQUEST_CREATE_TRANSACTION, callCreateTransaction);
+}
+
+function* callModifyTransaction({ payload }) {
+  const transaction = yield call(getTransaction, payload);
+  yield put(modifyTransaction(transaction));
+}
+
+export function* modifyTransactionSaga() {
+  yield takeEvery(REQUEST_CREATE_TRANSACTION, callModifyTransaction);
 }
 
 function* callTransaction({ payload }) {

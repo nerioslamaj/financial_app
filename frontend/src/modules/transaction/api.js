@@ -23,3 +23,11 @@ export async function createTransaction(payload) {
     return {};
   }
 }
+
+export async function modifyTransaction(payload) {
+  try {
+    return await transactionsService.update(payload._id, {payload});
+  } catch (err) {
+    return {};
+  }
+}

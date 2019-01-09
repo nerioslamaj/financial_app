@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Header, Image, Segment, Container } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
+import AddTransaction from './../AddTransaction';
 import PropTypes from 'prop-types';
 
 export default class SingleTransaction extends Component {
@@ -10,22 +11,17 @@ export default class SingleTransaction extends Component {
 
   render() {
     const transaction = this.props.currTransaction;
-    if (!Object.prototype.hasOwnProperty.call(transaction, 'name')) {
+    if (!Object.prototype.hasOwnProperty.call(transaction, 'source')) {
       return (<p>Loading...</p>);
     }
 
     return (
       <div>
-        <Header as="h1" textAlign="center" >{transaction.name}</Header>
-        <Image src={transaction.imageUrl} size="medium" centered />
-        <Segment.Group>
-          { /* eslint-disable */ }
-          {transaction.ingredients.map((ing, i) => <Segment key={i}>{ing}</Segment>)}
-        </Segment.Group>
-        <Container text>
-          {transaction.description.split('\n').map((d, i) => <p key={i}>{d}</p>)}
-          { /* eslint-enable */ }
-        </Container>
+        <AddTransaction></AddTransaction>
+        <Header as="h1" textAlign="center"> {transaction._id} </Header>
+        <Header as="h1" textAlign="center"> {transaction.source} </Header>
+        <Header as="h1" textAlign="center"> {transaction.amount} </Header>
+        <Header as="h1" textAlign="center"> {transaction.createdAt} </Header>
       </div>
     );
   }
@@ -39,10 +35,11 @@ SingleTransaction.defaultProps = {
 SingleTransaction.propTypes = {
   requestTransaction: PropTypes.func,
   currTransaction: PropTypes.shape({
-    // _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+    activity: PropTypes.string.isRequired,
   }),
   match: PropTypes.shape({
     params: PropTypes.shape({
